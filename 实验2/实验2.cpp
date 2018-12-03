@@ -1,4 +1,5 @@
 ﻿#include "pch.h"
+#include<cmath>
 #include<iostream>
 using namespace std;
 int jiecheng(int n)
@@ -10,9 +11,9 @@ int jiecheng(int n)
 		r = n * jiecheng(n - 1);
 	return r;
 }
-bool check(int m,int n)
+bool check(int m, int n)
 {
-	if (m >= 0 && n >= 0 && m >= n)
+	if (m >= 0 && n >= 0 && n >= m)
 		return true;
 	else
 		return false;
@@ -22,7 +23,7 @@ int main()
 suru:
 	int m;
 	int n;
-	cout << "请输入m和n：" << endl;
+	cout << "请先输入m（上）和n（下）：" << endl;
 	cin >> m >> n;
 	if (check(m, n))
 		cout << "结果为：" << jiecheng(n) / (jiecheng(n - m)*jiecheng(m)) << endl;
